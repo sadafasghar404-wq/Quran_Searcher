@@ -1,0 +1,98 @@
+/* Custom CSS specific to layout transitions and Arabic font adjustments */
+
+/* Animated Gradient Background */
+.bg-animated-gradient {
+    background: linear-gradient(-45deg, #eef2ff, #f0fdf4, #fffbeb, #fdf4ff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Adjusting line height for Arabic font for better readability */
+.font-arabic {
+    line-height: 2.2;
+}
+
+/* State changes for the search section */
+.search-active #main-container {
+    pt-32: false;
+    padding-top: 2rem;
+    /* Reduce top padding when search is active */
+}
+
+/* When search is active, logo and form should align like Google search results header */
+.search-active #search-section {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    max-w-4xl: true;
+    /* Increase width limit if needed, handled mostly by Tailwind max-w-4xl */
+    max-width: 56rem;
+    /* 4xl */
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid theme('colors.google.border');
+}
+
+.search-active #logo {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.search-active #search-form {
+    max-width: 40rem;
+    /* Give input field a reasonable max width */
+}
+
+.search-active #search-hint {
+    display: none;
+}
+
+/* Animations and Transitions */
+.opacity-0 {
+    opacity: 0;
+}
+
+.opacity-100 {
+    opacity: 1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Search bar box-shadow behavior override for sticky header feel */
+.search-active #search-form>div {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-active #search-form>div:hover,
+.search-active #search-form>div:focus-within {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Highlighting in Arabic result */
+.font-arabic em {
+    font-style: normal;
+    background-color: #fef08a;
+    /* Yellow highlight */
+    padding: 0 2px;
+    border-radius: 2px;
+    color: #b45309;
+    /* Darker text for contrast */
+}

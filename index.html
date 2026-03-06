@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quranic Word Frequency</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        google: {
+                            blue: '#4285F4',
+                            red: '#EA4335',
+                            yellow: '#FBBC05',
+                            green: '#34A853',
+                            gray: '#f1f3f4',
+                            border: '#dfe1e5',
+                            text: '#202124',
+                            lightText: '#5f6368',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body
+    class="bg-animated-gradient text-google-text font-sans antialiased min-h-screen flex flex-col transition-all duration-300">
+
+    <!-- Decorative background elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
+        <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-blue-100 opacity-50 blur-3xl"></div>
+        <div class="absolute top-40 -left-20 w-72 h-72 rounded-full bg-indigo-100 opacity-50 blur-3xl"></div>
+    </div>
+
+    <!-- Primary Container -->
+    <main id="main-container"
+        class="flex-grow flex flex-col w-full h-full transition-all duration-500 ease-in-out relative pt-32">
+
+        <!-- Search Header / Hero -->
+        <div id="search-section"
+            class="w-full max-w-2xl mx-auto px-4 flex flex-col items-center transition-all duration-500 transform">
+            <h1 id="logo" class="text-4xl md:text-5xl font-semibold mb-8 text-google-text transition-all duration-500">
+                Quran<span class="text-google-blue">Search</span>
+            </h1>
+
+            <form id="search-form" class="w-full relative">
+                <div
+                    class="relative flex items-center w-full h-12 rounded-full border border-google-border/50 bg-white/70 backdrop-blur-md focus-within:bg-white focus-within:shadow-md hover:shadow-md hover:bg-white/80 overflow-hidden transition-all duration-300">
+                    <div class="grid place-items-center h-full w-12 text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+
+                    <input class="peer h-full w-full outline-none text-md text-gray-700 pr-2 pl-2 bg-transparent"
+                        type="text" id="search-input" placeholder="Search an Arabic word..." dir="auto" />
+
+                    <button type="submit" class="hidden"></button>
+                </div>
+            </form>
+
+            <!-- Contextual Note (Only visible on home) -->
+            <p id="search-hint" class="text-sm text-google-lightText mt-6 text-center max-w-md">
+                Enter an Arabic word to find its occurrences in the Quran with English translations (e.g., محمد, كتاب).
+            </p>
+        </div>
+
+        <div class="h-8"></div> <!-- Spacer -->
+
+        <!-- Results Area -->
+        <div id="results-area"
+            class="w-full max-w-4xl mx-auto px-4 opacity-0 hidden transition-opacity duration-500 flex-grow pb-12">
+
+            <div id="stats-container" class="mb-6 pb-4 border-b border-google-border">
+                <p id="results-stats" class="text-google-lightText text-sm">
+                    <!-- Stats will appear here -->
+                </p>
+            </div>
+
+            <div id="loading" class="hidden flex justify-center items-center py-12">
+                <!-- Google style loading spinner -->
+                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-google-blue"></div>
+            </div>
+
+            <div id="results-list" class="space-y-6">
+                <!-- Result cards will be injected here -->
+            </div>
+
+            <div id="pagination" class="mt-8 flex justify-center space-x-2 hidden">
+                <!-- Pagination buttons will be injected here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/50 backdrop-blur-md border-t border-google-border/50 py-4 mt-auto">
+        <div class="max-w-4xl mx-auto px-4 text-center text-xs text-google-lightText font-medium">
+            Powered by Quran.com API
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
