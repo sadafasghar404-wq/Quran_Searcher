@@ -1,0 +1,2 @@
+# Quran_Searcher
+ENTER ANY WORD FROM THE HOLY QURAN.
