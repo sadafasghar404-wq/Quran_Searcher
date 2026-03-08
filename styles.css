@@ -1,25 +1,91 @@
 /* Custom CSS specific to layout transitions and Arabic font adjustments */
 
-/* Animated Gradient Background */
+/* ===================== QURAN BACKGROUND SLIDESHOW ===================== */
 .bg-animated-gradient {
-    background: linear-gradient(-45deg, #eef2ff, #f0fdf4, #fffbeb, #fdf4ff);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    position: relative;
+    color: #202124;
 }
 
-@keyframes gradientBG {
+/* Slideshow background using ::before pseudo-element */
+.bg-animated-gradient::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: quranSlideshow 30s ease-in-out infinite;
+}
+
+/* Light overlay on top of images for readability */
+.bg-animated-gradient::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(0px);
+}
+
+@keyframes quranSlideshow {
     0% {
-        background-position: 0% 50%;
+        background-image: url('images/quran_bg_1.png');
+        opacity: 1;
     }
 
-    50% {
-        background-position: 100% 50%;
+    18% {
+        background-image: url('images/quran_bg_1.png');
+        opacity: 1;
+    }
+
+    20% {
+        background-image: url('images/quran_bg_2.png');
+        opacity: 1;
+    }
+
+    38% {
+        background-image: url('images/quran_bg_2.png');
+        opacity: 1;
+    }
+
+    40% {
+        background-image: url('images/quran_bg_3.png');
+        opacity: 1;
+    }
+
+    58% {
+        background-image: url('images/quran_bg_3.png');
+        opacity: 1;
+    }
+
+    60% {
+        background-image: url('images/quran_bg_4.png');
+        opacity: 1;
+    }
+
+    78% {
+        background-image: url('images/quran_bg_4.png');
+        opacity: 1;
+    }
+
+    80% {
+        background-image: url('images/quran_bg_5.png');
+        opacity: 1;
+    }
+
+    98% {
+        background-image: url('images/quran_bg_5.png');
+        opacity: 1;
     }
 
     100% {
-        background-position: 0% 50%;
+        background-image: url('images/quran_bg_1.png');
+        opacity: 1;
     }
 }
+
+/* ===================================================================== */
 
 /* Adjusting line height for Arabic font for better readability */
 .font-arabic {
